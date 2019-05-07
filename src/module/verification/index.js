@@ -1,0 +1,1 @@
+export default content => (reg=/\S*/, errMessage='', preState=true) => preState && (!reg.test(content)) ? errMessage : ''

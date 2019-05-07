@@ -1,0 +1,133 @@
+.horizontal-page-transition(@name, @a){
+    .@{name}-enter-active.@{name}-enter{
+        &.page-transition{
+            transform:translateX(100vw * @a)
+        }
+        &.title-transition{
+            transform:translateX(100vw * @a)
+        }
+    }
+    .@{name}-enter-active{
+        transition:transform .4s !important;
+        &.page-transition{
+            position: absolute;
+            top:0;
+            transform:translateX(0);
+        }
+        &.title-transition{
+            transform:translateX(0);
+        }
+    }
+    .@{name}-leave-active.@{name}-leave{
+        &.page-transition{
+            transform:translateX(0)
+        }
+        &.title-transition{
+            transform:translateX(0);
+        }
+    }
+    .@{name}-leave-active{
+        transition:transform .4s !important;
+        &.page-transition{
+            position: absolute;
+            top:0;
+            transform:translateX(-100vw * @a);
+        }
+        &.title-transition{
+            transform:translateX(-100vw * @a);
+        }
+    }
+}
+.horizontal-page-transition(forward, 1);
+.horizontal-page-transition(back, -1);
+
+
+.vertical-page-transition(@name, @a, @duration){
+    .@{name}-enter-active.@{name}-enter{
+        &.page-transition{
+            transform:translateY(-100vh * @a)
+        }
+        &.title-transition{
+            transform:translateY(@6 *  @a)
+        }
+    }
+    .@{name}-enter-active{
+        transition:transform @duration !important;
+        &.page-transition{
+            position: absolute;
+            top:0;
+            transform:translateY(0);
+            overflow: hidden;
+        }
+        &.title-transition{
+            transform:translateY(0)
+        }
+        
+    }
+    .@{name}-leave-active.@{name}-leave{
+        &.page-transition{
+            transform:translateY(0)
+        }
+        &.title-transition{
+            transform:translateY(0)
+        }
+    }
+    .@{name}-leave-active{
+        transition:transform @duration !important;
+        &.page-transition{
+            position: absolute;
+            top:0;
+            transform:translateY(100vh * @a);
+            overflow: hidden;
+            
+        }
+        &.title-transition{
+            transform:translateY(-@6 *  @a)
+        }
+        
+    }
+}
+.vertical-page-transition(up, 1, .5s);
+.vertical-page-transition(down, -1, .5s);
+.vertical-page-transition(loginUp, 1, .4s);
+.vertical-page-transition(loginDown, -1, .4s);
+
+
+//登录、加载时转圈的动画
+.wait-animation(@name, @size, @width){
+    .wait-@{name}{
+        position: relative;
+        width: @size;
+        height: @size;
+        animation: circle infinite 1s linear;
+        border: @width solid;
+        border-top-color: #e8e8e8;
+        border-right-color:#ddd;
+        border-bottom-color: #e8e8e8;
+        border-left-color:#ddd;
+        border-radius: 100%;
+    }
+}
+@keyframes circle{
+    0% {transform: rotate(0);}
+    100% {transform: rotate(360deg);}
+}
+.wait-animation(logging, @8, 2vw);
+.wait-animation(loading, @5, 1.5vw);
+.wait-animation(listLoading, @2, 1vw);
+
+
+
+.fade-enter, .fade-leave-to{
+    opacity: 0;
+}
+
+
+
+@keyframes fade{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+
+

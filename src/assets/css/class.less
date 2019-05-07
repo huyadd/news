@@ -1,0 +1,118 @@
+.table{
+    display: table;
+}
+.a-button{
+    display: inline-block;
+    text-align: center;
+}
+.bottom-line(@color){
+    border-bottom:@color solid;
+    .grid(border-bottom-width, 1);
+}
+.bg(@color){
+    background-color: @color;
+}
+.color(@color){
+    color: @color;
+}
+.user-btn{
+
+}
+.main-button{
+    .a-button;
+    background-color:@theme;
+    width:@36;
+    height:@6;
+    line-height:@6;
+    .font-size(30);
+    color:#fff;
+}
+.img-wrap{
+    display: inline-block;
+    line-height: 0;
+    background-color: #ebebeb;
+}
+//滚动外部容器
+.scroll-wrapper{
+    height: calc(100vh - @6);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling:touch;
+}
+//返回顶部
+.go-top{
+    // display: none;
+    position: fixed;
+    bottom:@1;
+    right: @1;
+    width: @6;
+    height: @6;
+    background-color: rgba(0,0,0,.4);
+    border-radius: 100%;
+    transition: opacity .4s;
+    -webkit-backdrop-filter: blur(@1/2);
+    &:before{
+        content:"";
+        .go-top-icon;
+    }
+}
+//限制行数
+.limit-line(@n){
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: @n;
+    overflow: hidden;
+}
+//载入中
+.page-loading{
+    position: absolute;
+    display: none;
+    width: @48;
+    height:100vh;
+    background-color: rgba(245,245,245,.8);
+    z-index: 5;
+    &:after{
+        content: "";
+        display: block;
+        .wait-loading;
+        margin: 0 auto
+    }
+}
+.page-loading.show{
+    display:block;
+}
+.list-loading{
+    &:after{
+        content: "";
+        display: block;
+        .wait-listLoading;
+        margin: @3 auto
+    }
+}
+// .list-loading.first{
+//     &:after{
+//         margin-top:@18;
+//     }
+// }
+.list-first-loading{
+    position: absolute;
+    width: @48;
+    .list-loading;
+    &:after{
+        margin-top:@18;
+    }
+}
+// .go-top.show{
+//     display: block;
+//     opacity: .5;
+// }
+// .scroll-wrapper.noscroll{
+//     overflow-y:visible;
+//     -webkit-overflow-scrolling:auto;
+// }
+
+
+// .icon-hover{
+//     &:hover{
+//         background-color: @light;
+//     }
+// }

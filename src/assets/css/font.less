@@ -1,0 +1,11 @@
+//字体
+// .font-size(@n) when(@n <= 3){
+//     font-size:(20vw + (@n - 1) * 2) / 720 * 100;
+// }
+// .font-size(@n) when(@n > 3){
+//     font-size:(20vw + (@n - 3) * 3 + 4) / 720 * 100;
+// }
+
+.font-size(@n){
+    font-size:@n / 720 * 100vw
+}

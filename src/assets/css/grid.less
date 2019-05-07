@@ -1,0 +1,74 @@
+//栅格
+
+// @1:1 / 48 * 100vw;
+// @2:2 / 48 * 100vw;
+// @3:3 / 48 * 100vw;
+// @4:4 / 48 * 100vw;
+// @5:5 / 48 * 100vw;
+// @6:6 / 48 * 100vw;
+// @7:7 / 48 * 100vw;
+.grid(@name, @val){
+    @{name}:@val / 48 * 100vw;
+}
+.width(@n){
+    .grid(width, @n);
+}
+.height(@n){
+    .grid(height, @n);
+}
+.line-height(@n){
+    .grid(line-height, @n);
+}
+.v-height(@n){
+    .height(@n);
+    .line-height(@n);
+}
+.top(@n){
+    .grid(top, @n);
+}
+.bottom(@n){
+    .grid(bottom, @n);
+}
+.left(@n){
+    .grid(left, @n);
+}
+.right(@n){
+    .grid(right, @n);
+}
+.margin-top(@n){
+    .grid(margin-top, @n);
+}
+.margin-bottom(@n){
+    .grid(margin-bottom, @n);
+}
+.margin-left(@n){
+    .grid(margin-left, @n);
+}
+.margin-right(@n){
+    .grid(margin-right, @n);
+}
+.margin-top-bottom(@n){
+    .margin-top(@n);
+    .margin-bottom(@n);
+}
+.margin-left-right(@n){
+    .margin-left(@n);
+    .margin-right(@n);
+}
+
+.margin-around(@n){
+    .margin-top(@n);
+    .margin-bottom(@n);
+    .margin-left(@n);
+    .margin-right(@n);
+}
+.padding-top(@n){
+    .grid(padding-top, @n);
+}
+.padding-bottom(@n){
+    .grid(padding-bottom, @n);
+}
+.padding-top-bottom(@n){
+    .padding-top(@n);
+    .padding-bottom(@n);
+}
