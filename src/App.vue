@@ -67,6 +67,7 @@ export default {
     }
 
     if(this.$store.getters.storage.token){
+      console.log('登录！！！！！！！！！！！！！')
       this.$store.dispatch('login', this.$store.getters.storage.token)
     }
 
