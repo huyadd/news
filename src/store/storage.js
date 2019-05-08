@@ -2,6 +2,7 @@ let storage = {
     state: {
         finishTime:0,
         loginBox:false,
+        token: '12345678'
     },
     getters:{
         // getLoginBox(state){

@@ -52,11 +52,11 @@ export default {
   },
   mounted() {
      //补全history记录中的url，使得不从首页，而是从其中某个页面进入站点访问时，仍可以返回上一级和首页
+     //这个方法真的是一点可读性都没有。。
     let arr = RouteParse(this.$route.path)
 
     //let completeUrl
-    //这个方法完全一点可读性都没有。。
-    // alert(1)
+    
     if(arr[0] && arr[1]){
       // alert('xx user')
       this.$store.commit('ADD_HISTORY', {url:'/user', area:'user'})
@@ -66,11 +66,9 @@ export default {
       this.$store.commit('ADD_HISTORY', {url:'/news', area:'news'})
     }
 
-    // setInterval(function(){
-    //   this.indexKey++
-    //   console.log(this.indexKey)
-    //   console.log(this.$store.getters.history.news)
-    // }.bind(this), 1000)
+    if(this.$store.getters.storage.token){
+      this.$store.dispatch('login', this.$store.getters.storage.token)
+    }
 
   },
   watch: {

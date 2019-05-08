@@ -13,12 +13,12 @@ import Axios from 'axios'
 
 let userInfo = {
     state: {
-        uid:'0001',
-        photo:'http://pr3kng850.bkt.clouddn.com/static/images/02.jpg',
-        userName:'呜哇哇',
-        introduction:'一句话介绍，没什么可说的',
-        tel:'13533250000',
-        mail:'292665539@qq.com',
+        uid:'',
+        photo:'',
+        userName:'',
+        introduction:'',
+        tel:'',
+        mail:'',
         viewed:[],
         userFavorites:[],
     },
@@ -26,7 +26,10 @@ let userInfo = {
         login(state, loginData){
             state.commit('OPEN_LOGGING')
             return Axios({method: "get", url: "/mock/login", data: loginData})
-            .then(res => state.commit('CHANGE_INFO', res.data))
+            .then(res => {
+                state.commit('CHANGE_INFO', res.data.userInfo)
+                state.commit('SET_TOKEN', res.data.token)
+            })
             .catch(err => alert(err))
         },
         add_favorite(state, id){

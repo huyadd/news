@@ -128,6 +128,12 @@ export default {
         console.log('执行了CHANGE_LOGIN_BOX： storage.loginBox ='+ boole)
         storage.loginBox = boole
     },
+    SET_TOKEN({storage}, newVal){
+        storage.token = newVal
+    },
+    DEL_TOKEN({storage}){
+        storage.token = ''
+    },
     //userHistory
     ADD_USER_FAVORITES({userInfo}, newVal){
         userInfo.userFavorites.unshift(newVal)

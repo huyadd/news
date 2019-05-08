@@ -9,7 +9,7 @@ import Article from '../mockdata/article.js'
 
 
 Mock.mock('/mock/login', function(option){
-    return UserInfo
+    return {userInfo: UserInfo, token: 'FCzN3liFUd1SALdx'}
 })
 Mock.mock('/mock/news/all', function(option){
     return NewsList.slice(option.body * 6, (option.body + 1) * 6)

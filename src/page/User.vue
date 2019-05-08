@@ -42,6 +42,7 @@ export default {
       this.$store.commit('OPEN_BACKBTN')
       this.$router.replace(this.$store.getters.backUrl)
       this.$store.commit('RESET_USER_INFO')
+      this.$store.commit('DEL_TOKEN')
       
     }
   },
