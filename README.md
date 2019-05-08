@@ -1,6 +1,29 @@
-# my
+# 一个基于vue的移动端新闻站点演示DEMO
 
-> A Vue.js project
+## 特性
+- 实验了一种新的小格布局方式，这是从设计阶段就开始的介入，你可以看到 less 文件中使用了诸如@1、@6这样的以变量单位（@1为一个格子，同理@6就是6格），后面会被编译为 vw 单位
+- 符合空间逻辑的全局动画效果，这一点也是一开始设计时就定下的，绝大部分动画使用 vue 的 transition 组件实现
+
+
+## 技术栈
+- vue全家桶
+    - vue2
+    - vue-router
+    - vuex
+- 数据
+    - Axios
+    - mockjs (dev)
+- 预处理器
+    - less
+- 其他
+    - lodash
+    - momentjs
+    - vuex-persist
+
+
+## 存在的问题
+- 动画从最终实现的DEMO效果来说达到了预期，但在代码复杂度上，超过了之前的预期不少，单纯增加一点过渡效果很简单，但为了“符合空间逻辑”就需要牵扯到大量的判断，为了动画中的一些的细节处理尽可能完美，会引入更多的判断，比最初预想的要复杂许多，这些用于动画的逻辑直接写在内容组件上，容易造成混乱，对可维护性来说是非常不利的，后面会把动画组件单独抽象出来，与内容组件解耦。整体效果是自己设计自己写的，很多想法没有现成的案例可以参照，一些地方欠考虑，虽然效果实现了，但实现的不好
+
 
 ## Build Setup
 
@@ -17,5 +40,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
