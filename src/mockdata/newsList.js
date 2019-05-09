@@ -153,7 +153,7 @@ export default [
         "title": 'DeepMind 第一个有望商业化的产品：用 AI 诊断眼部疾病',
         "id": '1193572',
         "imgs":[
-            {"src":'../../static/news_images/1193572-1.jpg'},
+            {"src":'http://pr3kng850.bkt.clouddn.com/static/news_images/1193572-1.jpg'},
         ],
         "author": 'ifanr 爱范儿',
         "time": '1555762172',

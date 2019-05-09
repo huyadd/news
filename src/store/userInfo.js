@@ -25,12 +25,21 @@ let userInfo = {
     actions:{
         login(state, loginData){
             state.commit('OPEN_LOGGING')
+            state.commit('CHANGE_LOGIN_BOX', false)
             return Axios({method: "get", url: "/mock/login", data: loginData})
             .then(res => {
                 state.commit('CHANGE_INFO', res.data.userInfo)
                 state.commit('SET_TOKEN', res.data.token)
             })
             .catch(err => alert(err))
+        },
+        change_info(state, val){
+            state.commit('CHANGE_INFO', val)
+            return Axios({method: "get", url: "/mock/userinfo", data: val})
+            .catch(err => {
+                alert('操作失败')
+                console.log(err)
+            })
         },
         add_favorite(state, id){
             state.commit('ADD_USER_FAVORITES', id)

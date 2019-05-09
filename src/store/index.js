@@ -19,6 +19,8 @@ import pageInfo from './pageInfo.js'
 import storage from './storage.js'
 import processing from './processing.js'
 
+import mockdata from './mockdata.js'
+
 
 
 
@@ -28,7 +30,7 @@ Vue.use(Vuex)
 const vuexLocal = new VuexPersistence({
     storage: window.localStorage,
     key:'vuexLocal',
-    modules: ['storage']
+    modules: ['storage', 'mockdata']
 })
 
 const store = new Vuex.Store({
@@ -48,7 +50,8 @@ const store = new Vuex.Store({
         goBackUrl,
         history,
         storage,
-        processing
+        processing,
+        mockdata
     },
     plugins: [vuexLocal.plugin]
 })

@@ -146,7 +146,7 @@ export default {
     }
   },
   beforeRouteLeave(to, from, next){
-    this.$store.commit('CHANGE_INFO', this.input)
+    this.$store.dispatch('change_info', this.input)
     next()
   }
 }

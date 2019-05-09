@@ -1045,7 +1045,7 @@ export default {
     "1199422":{
         "id": "1199422",
         "cover": 'http://pr3kng850.bkt.clouddn.com/static/news_images/1199422-cover.jpg',
-        "title": '38 万，克隆一只宠物',
+        "title": '38 万，克隆一只宠物.',
         "info": {
             "time": '1555762172',
             "sourceLink": 'http://www.ifanr.com/1199422',

@@ -91,7 +91,7 @@ export default {
       await Axios({method: "get", url: "/mock/news/related"})
       .then(res => this.list.data = res.data)
 
-      SmoothScroll(this.$refs.wrapper, this.$refs.detailContent, () =>{
+      SmoothScroll(this.$refs.wrapper, this.$refs.detailContent, () => {
         this.scrollTop = this.$refs.wrapper.scrollTop
         if(this.scrollTop < 0){
           this.$refs.cover.style.height = 'calc(37.5vw - 1px + '+ Math.abs(this.scrollTop) +'px)'
@@ -108,7 +108,6 @@ export default {
       GoTop(this.$refs.wrapper)
     },
     favorite(){
-      //为了用户体验，点击按钮之后需要立即得到反馈，服务器响应后再重新修正一次结果
       if(this.isFavorite){
         this.$store.dispatch('del_favorite', this.newsId)
         //.then(res => {this.isFavorite = this.favorites.indexOf(this.newsId) != -1})
@@ -132,16 +131,17 @@ export default {
     //   console.log(this.isFavorite)
     // },1000)
   },
-  
+  //通过返回进入页面时，让滚动条保持在原来的位置
   activated(){
     // this.isFavorite = this.favorites.indexOf(this.newsId) != -1
-    //这里只有通过右上角返回按钮返回上一条新闻时，滚动条才会保持，后面可能修改完善
+    //这里只有通过右上角返回按钮返回上一条新闻时，滚动条才会保持，手势返回则不能，后面可能修改完善
     if(this.$store.getters.processing.backing){
       this.$refs.wrapper.scrollTop = this.scrollTop
     }else{
       this.$refs.wrapper.scrollTop = this.scrollTop = 1
     }
   },
+  //离开时添加浏览记录
   beforeRouteLeave(to, from , next){
     if(this.isLogin){
       this.$store.dispatch('add_viewed', this.newsId)

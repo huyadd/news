@@ -32,11 +32,13 @@ export default {
     //userInfo
     CHANGE_INFO({userInfo}, newInfo){
         userInfo.photo = newInfo.photo
-        userInfo.userName = newInfo.userName
-        userInfo.introduction = newInfo.introduction
+        userInfo.userName = newInfo.userName || userInfo.userName
+        userInfo.introduction = newInfo.introduction || userInfo.introduction
         userInfo.uid = newInfo.uid || userInfo.uid
         userInfo.tel = newInfo.tel || userInfo.tel
         userInfo.mail = newInfo.mail || userInfo.mail
+        userInfo.viewed = newInfo.viewed || []
+        userInfo.userFavorites = newInfo.userFavorites || []
     },
     CHANGE_PHOTO({userInfo}, url){
         userInfo.photo = url
