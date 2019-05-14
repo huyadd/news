@@ -37,8 +37,8 @@ export default {
         userInfo.uid = newInfo.uid || userInfo.uid
         userInfo.tel = newInfo.tel || userInfo.tel
         userInfo.mail = newInfo.mail || userInfo.mail
-        userInfo.viewed = newInfo.viewed || []
-        userInfo.userFavorites = newInfo.userFavorites || []
+        userInfo.viewed = newInfo.viewed || userInfo.viewed
+        userInfo.userFavorites = newInfo.userFavorites || userInfo.userFavorites
     },
     CHANGE_PHOTO({userInfo}, url){
         userInfo.photo = url

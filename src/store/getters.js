@@ -34,7 +34,7 @@ export default {
             return _.last(state.history.news)
         }
     },
-    //导航的链接是否是返回链接
+    //导航的链接是否是返回链接（历史记录中的上一条）
     isBackLink(state, getters){
         return state.pageInfo.fullPath == getters.backUrl && (!state.processing.switching)
     },

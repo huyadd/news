@@ -110,7 +110,7 @@ export default {
 
     //预览图片
 		imgPreview(file, name){
-	        //0.前置条件（IE9不支持FileReader，这里要判断一下）
+	        //0.前置条件（兼容判断）
 	        if (window.FileReader) var reader = new FileReader()
 	        else return false
 
