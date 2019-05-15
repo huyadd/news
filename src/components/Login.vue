@@ -120,6 +120,107 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 @import '../assets/css/basis.less';
+.login{
+      position: absolute;
+      top:0;
+      transform: translateY(-@43);
+      height:@49;
+      transition:transform .4s;
+      z-index: 0;
+      will-change: transform;
+      .box{
+          //position: fixed;
+          top:@6;
+          z-index: 10;
+          height:@49;
+          width:@48;
+          padding:@7 @6 0 @6;
+          background-color:#f5f5f5;
+          .bottom-line(#ccc);
+          .input-group{
+              input{
+                  width:@36;
+                      .v-height(6);
+                      .font-size(30);
+                  }
+              .warn{
+                  position: relative;
+                  .width(36);
+                  .v-height(6);
+                  border-top:1px solid #ddd;
+                  overflow: hidden;
+                  span{
+                      // position: absolute;
+                      // top: -@4;
+                      display: inline-block;
+                      transition: transform .3s, opacity .3s;
+                      color: #d58acd;
+                      .font-size(24);
+                  }
+              }
+          }
+          .input-group.tel{
+              margin-bottom: @1;
+          }
+          .input-group.code{
+              margin-bottom: @4;
+              input{
+                  .width(24);
+              }
+              .send{
+                  display: inline-block;
+                  .width(12 );
+                  .v-height(6);
+                  .font-size(24);
+                  .color(@theme);
+                  text-align:right;
+              }
+              .timing{
+                  display: inline-block;
+                  .width(12 );
+                  .v-height(6);
+                  .font-size(24);
+                  .color(#ccc);
+                  text-align:right;
+              }
+          }
+          .text{
+              height: @6;
+              line-height: @6;
+              .font-size(20);
+              color:#999;
+              text-align: center;
+          }
+          .main-button.logging{
+              background-color: #ddd;
+          }
+      }
+      .box.logging{
+          .input-group{
+              opacity: 0;
+          }
+      }
+      .logging-layer{
+          position: absolute;
+          top: 0;
+          width:@48;
+          
+          .wait-logging{
+              margin: 14vh auto;
+          }
+          span{
+              position: absolute;
+              top:0;
+              display: block;
+              width: @22;
+              line-height: @22;
+              text-align: center;
+              margin: 8vh @13 @1 @13;
+              .font-size(28);
+              color:#ddd;
+          }
+      }
+  }
 .message-fade-enter-active.message-fade-enter{
   transform: translateY(-@4);
   opacity: 0;

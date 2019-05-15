@@ -100,8 +100,221 @@ export default {
   },
 }
 </script>
-
 <style lang="less"  type="text/less" scoped>
+@import '../assets/css/basis.less';
+//从之前统一的列表css中抽取出来的，需要重新简化
+//列表
+.list{
+    min-height: 101%;
+    background-color: #fff;
+    padding-bottom: @10;
+    opacity: 0;
+    transition: opacity .4s;
+    li.news-list{
+        // transition: opacity .5s;
+        // opacity: 1;
+        .bottom-line(#f5f5f5);
+        // animation: fade .5s forwards ;
+
+        
+        a{
+            display: inline-block;
+            width:@46;
+            margin-left:@1;
+            margin-right: @1;
+            h1{
+                .table;
+                line-height:@3;
+                padding-top:@3 / 2;
+                padding-bottom:@3 / 2;
+                .font-size(30);
+                color:#333;
+                span{
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
+                }
+            }
+            .img{
+                height:@9;
+                .img-wrap{
+                    width:@1 * 220 / 15;
+                    height:@9;
+                    &:nth-child(2){
+                        margin-left: @1;
+                        margin-right: @1;
+                    }
+                    img{
+                        width:100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+            .info{
+                height:@5;
+                line-height: @5;
+                span{
+                    .font-size(22);
+                    color:@theme-black;
+                    margin-right:@1;
+                }
+                .favorite{
+                    display: none;
+                    float: right;
+                }
+            }
+        }
+    }
+    .news-list.single,.news-list.none{
+        a{
+            position: relative;
+            z-index:3;
+            height:@11; 
+            h1{
+                display: inline-block;
+                width:@1 * (46 - 14.666 - 1);
+                vertical-align: top;
+                padding-top:@1;
+                padding-bottom:@1;
+            }
+            .img{
+                float: right;
+                margin-top:@1;
+                margin-bottom: @1;
+            }
+            .info{
+                display: inline-block;
+                position: absolute;
+                left:0;
+                bottom:0;
+                height:@5;
+                line-height: @5;
+            }
+        }
+    }
+    li.none{
+        a{
+            h1{
+                width:@46;
+            }
+        }
+    }
+    li.state{
+        height:@6;
+        line-height: @6;
+        text-align: center;
+        .font-size(26);
+        color: #ccc;
+        // opacity: 1;
+        .bottom-line(#f5f5f5);
+    }
+    li:last-child{
+        border-bottom:none;
+    }
+    li.highlight{
+        a{
+            h1{
+                // color: @theme-black;
+                font-weight: bold;
+            }
+            .info{
+                .favorite{
+                    display: inline-block;
+                }
+            }
+            
+        }
+        
+    }
+
+}
+.list.show{
+    opacity: 1;
+}
+// .list.reloading{
+//     opacity: .3;
+// }
+.list.viewed{
+    li{
+        height:@7;
+        transition:opacity .2s, height .3s .5s;
+        .bottom-line(#f5f5f5);
+        a{
+            width:@40;
+            height:@6;
+            line-height: @6;
+            margin-left: @2;
+            margin-right: 0;
+            vertical-align: middle;
+            
+            h1{
+                display: block;
+                width:@40;
+                .font-size(24);
+                height:@6;
+                line-height: @6;
+                padding-top:0;
+                padding-bottom: 0;
+                // display: -webkit-box;
+                // -webkit-box-orient: vertical;
+                // -webkit-line-clamp: 1;
+                overflow: hidden;
+                white-space:nowrap;
+                text-overflow:ellipsis;
+            }
+            .info{
+                height:@3 / 2;
+                line-height:@3 / 2;
+                span{
+                    .font-size(20); 
+                    color: #999;
+                }
+            }
+        }
+        i{
+            margin-left: @1;
+            margin-right: @1;
+            vertical-align: middle;
+        }
+    }
+    li.listfade-enter-active:not(.show){
+        height:@7;
+    }
+}
+
+.list.viewed,
+.list.favorites{
+    transition: opacity .4s;
+    min-height: calc(100vh - @6 + 5px);
+    li.hide{
+        opacity: 0;
+        height:0;
+        border-width: 0;
+    }
+    li.listfade-enter-active
+    {
+        opacity: 0;
+        height:0;
+        border-width: 0;
+    }
+    
+}
+
+.list-empty{
+    position: absolute;
+    top:0;
+    display: block;
+    width: @48;
+    height: 66vh;
+    line-height: 66vh;
+    color: #ddd;
+    .font-size(28);
+    text-align: center;
+    opacity: 0;
+    animation: fade .3s forwards;
+}
 .list li.state{
   border-bottom: none;
 }

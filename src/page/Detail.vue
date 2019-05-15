@@ -18,10 +18,7 @@
             <span>相关新闻</span>
           </div>
           <List :listState="list" @linkClick="openMove" />
-          <div class="footer">
-            <p>vue 移动端新闻站点DEMO</p>
-            <p>项目源码：<a href="https://github.com/huyadd/news" target="_blank">github.com/huyadd/news</a></p>
-          </div>
+          <Footer />
         </div>
       </div>
     </div>
@@ -36,7 +33,9 @@
 <script>
 import ArticleCom from '../components/ArticleCom'
 import List from '../components/List'
+import Footer from '../components/Footer'
 import GoTopButton from '../components/GoTopButton'
+
 import GoTop from '../module/gotop'
 import SmoothScroll from '../module/smoothScroll'
 import Axios from 'axios'
@@ -47,6 +46,7 @@ export default {
     ArticleCom,
     List,
     GoTopButton,
+    Footer,
   },
   data () {
     return {

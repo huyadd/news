@@ -120,22 +120,56 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 @import '../assets/css/basis.less';
-// .title{
-//   transition: transform .6s;
-// }
-// .fade-enter-active.fade-enter{
-//   transform:translateY(@6)
-// }
-// .fade-enter-active {
-//   transform:translateY(0)
-// }
-
-// .fade-leave-active.fade-leave{
-//   transform:translateY(0)
-// }
-// .fade-leave-active {
-//   transform:translateY(-@6)
-// }
+header{
+  position: fixed;
+  top:0;
+  width:@48;
+  .height(6);
+  z-index: 10;
+  transition:height 1.4s;
+  .main{
+      position: relative;
+      height:@6;
+      z-index: 10;
+      .bg(@theme);
+      .logo{
+          .logo-icon;
+          .margin-left-right(14);
+      };
+      .title{
+          position: absolute;
+          //top:0;
+          left:@19;
+          display: inline-block;
+          width: @10;
+          height:@6;
+          line-height:@6;
+          //.margin-left-right(19);
+          color:#fff;
+          .font-size(32);
+          vertical-align: top;
+          text-align:center;
+          transition: transform 0;
+          background-color: @theme;
+          will-change: transform;
+      }
+      #back-btn{
+          position: absolute;
+          left: 0;
+          top:0;
+      }
+      #back-btn[data-disable=true]{
+          opacity: .3;
+      }
+      #state-btn{
+          position: absolute;
+          right: 0;
+          top:0;
+      }
+      overflow: hidden;
+  }
+  
+}
 
 
 </style>

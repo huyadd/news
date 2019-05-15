@@ -38,23 +38,8 @@
     overflow-y: scroll;
     -webkit-overflow-scrolling:touch;
 }
-//返回顶部
-.go-top{
-    // display: none;
-    position: fixed;
-    bottom:@1;
-    right: @1;
-    width: @6;
-    height: @6;
-    background-color: rgba(0,0,0,.4);
-    border-radius: 100%;
-    transition: opacity .4s;
-    -webkit-backdrop-filter: blur(@1/2);
-    &:before{
-        content:"";
-        .go-top-icon;
-    }
-}
+
+
 //限制行数
 .limit-line(@n){
     display: -webkit-box;
@@ -101,18 +86,5 @@
         margin-top:@18;
     }
 }
-// .go-top.show{
-//     display: block;
-//     opacity: .5;
-// }
-// .scroll-wrapper.noscroll{
-//     overflow-y:visible;
-//     -webkit-overflow-scrolling:auto;
-// }
 
 
-// .icon-hover{
-//     &:hover{
-//         background-color: @light;
-//     }
-// }
