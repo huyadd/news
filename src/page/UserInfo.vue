@@ -153,5 +153,107 @@ export default {
 </script>
 
 <style lang="less"  type="text/less" scoped>
-
+@import '../assets/css/basis.less';
+.user-info{
+    // height:100vh - @5;
+    // overflow: hidden;
+    > div{
+        .item{
+            height:@6;
+            line-height: @6;
+            border-bottom: 1px solid #ddd;
+            padding: 0 @2;
+            background-color: #f5f5f5;
+            .name{
+                display: inline-block;
+                .font-size(27);
+                color: #333;
+            }
+            .restore{
+                display: none;
+                .font-size(27);
+                color:@theme;
+                margin-left: @6;
+            }
+            // .val{
+            //     float: right;
+            //     .font-size(2);
+            //     color: @theme-black;
+            // }
+            input{
+                display: none;
+                float: right;
+                display: inline-block;
+                height:@6;
+                width: @28;
+                .font-size(24);
+                color: @theme-black;
+                text-align: right;
+            }
+            input:disabled{
+                opacity: 1;
+                color: #333
+            }
+        }
+        .item.photo{
+            height:@12;
+            line-height: @12;
+            .val{
+                position: relative;
+                float: right;
+                width:@8;
+                height: @8;
+                overflow: hidden;
+                border-radius: 100%;
+                margin: @2 0;
+                img{
+                    width: 100%; 
+                    height: 100%; 
+                    object-fit:cover; 
+                }
+                input[type="file"]{
+                    position: absolute;
+                    left: 0;
+                    width:@8;
+                    height: @8;
+                    overflow: hidden;
+                    opacity: 0;
+                }
+            }
+        }
+        .item.highlight{
+            input{
+                color: #4593eb;
+                //font-weight: bold;
+            }
+        }
+        .item.active,.item.active.highlight{
+            background-color: #fff;
+            .restore{
+                display: none;
+            }
+            input{
+                color: #666;
+            }
+        }
+        .item.highlight{
+            .restore{
+                display: inline-block;
+            }
+        }
+        
+    }
+    > div.basis{
+        .bottom-line(#ddd);
+    }
+    > div.bind{
+        border-top:1px solid #ddd;
+    }
+    .main-button{
+        position: fixed;
+        bottom:0;
+        margin: 0 @6 @6 @6;
+    }
+    
+}
 </style>

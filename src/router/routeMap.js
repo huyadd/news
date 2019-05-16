@@ -4,7 +4,6 @@ import User from '@/page/User'
 import UserInfo from '@/page/UserInfo'
 import Viewed from '@/page/viewed'
 import Favorites from '@/page/Favorites'
-import Store from '@/page/store'
 import Verification from '@/page/Verification'
 
 export default [
@@ -69,15 +68,9 @@ export default [
       component: Favorites,
     },
     {
-      path: '/store',
-      name: 'store',
-      title: '状态管理',
-      component: Store
+      path: '*',
+      name: 'notfound',
+      title: '404',
+      component: ({template:`<div class="notfound"><span>页面不存在</span></div>`})
     },
-    // {
-    //   path: '*',
-    //   name: 'notfound',
-    //   title: '404',
-    //   component: ({template:`<div class="notfound"><span>页面不存在</span></div>`})
-    // },
   ]

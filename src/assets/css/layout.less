@@ -38,6 +38,20 @@ body{
 }
 
 
+.notfound{
+    height:100vh - @7;
+    // background-color: @gray2;
+    .font-size(33);
+    color:@gray7;
+    margin: auto;
+    text-align:center;
+    span{
+        position: relative;
+        top:40%;
+    }
+}
+
+
 
 
 
@@ -66,117 +80,14 @@ body{
     will-change: transform;
 }
 
-//新闻列表
-.news{   
-    overflow:hidden;
-    .title{
-        height: @6;
-        line-height:@6;
-        padding-left: @1;
-        background-color: #fff;
-        border-bottom: 1px solid #ccc;
-        span{
-            line-height:@6;
-            .font-size(30);
-            font-weight:bold;
-            color:@theme-black;
-        }
-    } 
-    .page-loading{
-        padding-top:33vh;
-    }
-    
-    .news-wrap{
-        height: calc(100vh - @12);
-        margin-top: 12.5vw;
-        overflow-x: hidden;
-        // -webkit-transform-style:flat;
-        .list-box{
-            width: @48 * 3;
-            height: calc(100vh - @12);
-            // transform: translateX(-@24);
-            transition: transform .4s;
-            will-change: transform;
-            // -webkit-transform-style:flat;
-            .scroll-wrapper{
-                position: absolute;
-                top:0;
-                display: inline-block;
-                width: @48;
-                height: calc(100vh - @12);
-            }
-            .scroll-wrapper.all{
-                left: 0;
-            }
-            .scroll-wrapper.recommend{
-                left: @48;
-            }
-            .scroll-wrapper.hot{
-                left: @96;
-            }
-        }
-        .list-box.all{
-            transform: translateX(0);
-        }
-        .list-box.recommend{
-            transform: translateX(-@48);
-        }
-        .list-box.hot{
-            transform: translateX(-@96);
-        }
-    }
-}
 
-.news.login{
-    margin-top:@54;
-    nav{
-        top:@54;
-    }
-}
 .list-img{
     width:@1 * 220 / 15;
     height:@9;
 }
 
 
-//详情页
-.detail{
-    background-color:#ebebeb;
-    > .cover{
-        position: absolute;
-        top:@6;
-        width: @48;
-        height:calc(@18 - 1px);
-        z-index: 0;
-        opacity: 0;
-        transition: opacity .6s;
-        &:after{
-            content: "";
-            display: block;
-            position: absolute;
-            bottom: 0;
-            width: @48;
-            height: @3;
-            background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
-            opacity: .06;
-        }
-        img{
-            // display: none;
-            width:100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center top;
-        }
-    }
-    > .cover.show{
-        opacity: 1;
-    }
-    .scroll-wrapper{
-        position: absolute;
-        top:@6;
-    }
-    
-}
+
 //优化页面切换时的动画性能和不同页面scrollTop带来的动画显示问题
 .content{
     img{
@@ -202,178 +113,9 @@ body{
 
 
 
-//用户中心
-.user{
-    height:100vh - @3;
-    // background-color: #f5f5f5;
-    overflow: hidden;
-    .photoWrap{
-        width: @22;
-        height: @22;
-        margin: 8vh @13 @1 @13;
-        .photo{
-            border-radius: 100%;
-            overflow: hidden;
-            padding: @3 /2;
-            background-color: @theme;
-            img{
-                width: @19;
-                height: @19;
-                border-radius: 100%;
-            }
-        }
-        .photo.magnifier{
-            animation: magnifier 1.2s;
-        }
-        @keyframes magnifier {
-            0% {transform: scale(0)}
-            50% {transform: scale(0)}
-            80% {transform: scale(1.05)}
-            100% {transform: scale(1)}
-        }
-    }
-    
-    .name{
-        height:@5;
-        line-height: @5;
-        color: @theme-black;
-        .font-size(42);
-        text-align: center;
-    }
-    .introduction{
-        height:@4;
-        line-height: @4;
-        color: #ccc;
-        .font-size(24);
-        text-align: center;
-        margin-bottom: @2;
-    }
-    .nav{
-        a{
-            display: block;
-            height:@4;
-            line-height: @4;
-            color: @theme;
-            .font-size(27);
-            text-align: center;
-            margin-bottom: @1;
-        }
-    }
-    .main-button{
-        position: fixed;
-        bottom:0;
-        display: block;
-        width: @36;
-        height:@6;
-        line-height: @6;
-        color: #fff;
-        .font-size(30);
-        margin: @6;
-    }
-}
 
-.user-info{
-    // height:100vh - @5;
-    // overflow: hidden;
-    > div{
-        .item{
-            height:@6;
-            line-height: @6;
-            border-bottom: 1px solid #ddd;
-            padding: 0 @2;
-            background-color: #f5f5f5;
-            .name{
-                display: inline-block;
-                .font-size(27);
-                color: #333;
-            }
-            .restore{
-                display: none;
-                .font-size(27);
-                color:@theme;
-                margin-left: @6;
-            }
-            // .val{
-            //     float: right;
-            //     .font-size(2);
-            //     color: @theme-black;
-            // }
-            input{
-                display: none;
-                float: right;
-                display: inline-block;
-                height:@6;
-                width: @28;
-                .font-size(24);
-                color: @theme-black;
-                text-align: right;
-            }
-            input:disabled{
-                opacity: 1;
-                color: #333
-            }
-        }
-        .item.photo{
-            height:@12;
-            line-height: @12;
-            .val{
-                position: relative;
-                float: right;
-                width:@8;
-                height: @8;
-                overflow: hidden;
-                border-radius: 100%;
-                margin: @2 0;
-                img{
-                    width: 100%; 
-                    height: 100%; 
-                    object-fit:cover; 
-                }
-                input[type="file"]{
-                    position: absolute;
-                    left: 0;
-                    width:@8;
-                    height: @8;
-                    overflow: hidden;
-                    opacity: 0;
-                }
-            }
-        }
-        .item.highlight{
-            input{
-                color: #4593eb;
-                //font-weight: bold;
-            }
-        }
-        .item.active,.item.active.highlight{
-            background-color: #fff;
-            .restore{
-                display: none;
-            }
-            input{
-                color: #666;
-            }
-        }
-        .item.highlight{
-            .restore{
-                display: inline-block;
-            }
-        }
-        
-    }
-    > div.basis{
-        .bottom-line(#ddd);
-    }
-    > div.bind{
-        border-top:1px solid #ddd;
-    }
-    .main-button{
-        position: fixed;
-        bottom:0;
-        margin: 0 @6 @6 @6;
-    }
-    
-}
+
+
 
 
 //body,html{ width:100%; height:100%; overflow:hidden;}

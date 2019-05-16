@@ -158,8 +158,44 @@ export default {
 
 <style lang="less"  type="text/less" scoped>
 @import '../assets/css/basis.less';
-@import '../assets/css/layout.less';
-
+//详情页
+.detail{
+    background-color:#ebebeb;
+    > .cover{
+        position: absolute;
+        top:@6;
+        width: @48;
+        height:calc(@18 - 1px);
+        z-index: 0;
+        opacity: 0;
+        transition: opacity .6s;
+        &:after{
+            content: "";
+            display: block;
+            position: absolute;
+            bottom: 0;
+            width: @48;
+            height: @3;
+            background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+            opacity: .06;
+        }
+        img{
+            // display: none;
+            width:100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+    }
+    > .cover.show{
+        opacity: 1;
+    }
+    .scroll-wrapper{
+        position: absolute;
+        top:@6;
+    }
+    
+}
 
 
 </style>

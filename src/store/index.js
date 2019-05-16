@@ -7,7 +7,6 @@ import _ from 'lodash'
 
 
 //state
-import T1 from './t1.js'
 import userInfo from './userInfo'
 import goBackUrl from './goBackUrl.js'
 import history from './history.js'
@@ -44,7 +43,6 @@ const store = new Vuex.Store({
     mutations:mutations,
     getters:getters,
     modules: {
-        T1,
         pageInfo,
         userInfo,
         goBackUrl,

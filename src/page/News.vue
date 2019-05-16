@@ -88,5 +88,72 @@ export default {
 </script>
 
 <style lang="less"  type="text/less" scoped>
+@import '../assets/css/basis.less';
+//新闻列表
+.news{   
+    overflow:hidden;
+    .title{
+        height: @6;
+        line-height:@6;
+        padding-left: @1;
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        span{
+            line-height:@6;
+            .font-size(30);
+            font-weight:bold;
+            color:@theme-black;
+        }
+    } 
+    .page-loading{
+        padding-top:33vh;
+    }
+    
+    .news-wrap{
+        height: calc(100vh - @12);
+        margin-top: 12.5vw;
+        overflow-x: hidden;
+        // -webkit-transform-style:flat;
+        .list-box{
+            width: @48 * 3;
+            height: calc(100vh - @12);
+            // transform: translateX(-@24);
+            transition: transform .4s;
+            will-change: transform;
+            // -webkit-transform-style:flat;
+            .scroll-wrapper{
+                position: absolute;
+                top:0;
+                display: inline-block;
+                width: @48;
+                height: calc(100vh - @12);
+            }
+            .scroll-wrapper.all{
+                left: 0;
+            }
+            .scroll-wrapper.recommend{
+                left: @48;
+            }
+            .scroll-wrapper.hot{
+                left: @96;
+            }
+        }
+        .list-box.all{
+            transform: translateX(0);
+        }
+        .list-box.recommend{
+            transform: translateX(-@48);
+        }
+        .list-box.hot{
+            transform: translateX(-@96);
+        }
+    }
+}
 
+.news.login{
+    margin-top:@54;
+    nav{
+        top:@54;
+    }
+}
 </style>
